@@ -75,4 +75,7 @@
   }
   private let _swift_task_enqueueGlobal_hook: UnsafeMutablePointer<Hook?> =
     dlsym(dlopen(nil, 0), "swift_task_enqueueGlobal_hook").assumingMemoryBound(to: Hook?.self)
+
+  @attached(member)
+  public macro withMainSerialExecutor() = #externalMacro(module: "ConcurrencyExtrasMacros", type: "MainSerialExecutorMacro")
 #endif
